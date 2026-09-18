@@ -68,7 +68,6 @@ def run_nuclei(host, portas_abertas):
     print("=" * 50)
 
     port_list = ",".join(str(p) for p, _ in portas_abertas)
-    # Verifica se a porta 443 está aberta para usar https
     https_flag = any(p == 443 for p, _ in portas_abertas)
 
     if https_flag:
@@ -178,7 +177,6 @@ if __name__ == "__main__":
         print("[-] IP inválido.")
         sys.exit(1)
 
-    # Opcional: validar IP
     try:
         socket.inet_aton(host)
     except socket.error:
